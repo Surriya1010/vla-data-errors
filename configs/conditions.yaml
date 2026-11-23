@@ -1,0 +1,25 @@
+# Every experimental condition. Names are used for dataset copies, training
+# runs and result folders. "clean" goes through the same copy pipeline as the
+# others, so the only difference between conditions is the injected error.
+
+clean:
+  type: none
+
+# Action/observation time offset (frames; positive = actions recorded late)
+action_lag_1: {type: action_lag, k: 1}
+action_lag_2: {type: action_lag, k: 2}
+action_lag_4: {type: action_lag, k: 4}
+
+# Wrong task label on a fraction of episodes (drawn from the same suite)
+instruction_swap_10: {type: instruction_swap, fraction: 0.10}
+instruction_swap_25: {type: instruction_swap, fraction: 0.25}
+instruction_swap_50: {type: instruction_swap, fraction: 0.50}
+
+# Operator noise: std = strength x per-dim std of clean arm actions
+action_jitter_10: {type: action_jitter, strength: 0.10}
+action_jitter_25: {type: action_jitter, strength: 0.25}
+action_jitter_50: {type: action_jitter, strength: 0.50}
+
+# Optional: calibration offset on end-effector position (metres)
+state_bias_5mm:  {type: state_bias, offset_m: 0.005}
+state_bias_20mm: {type: state_bias, offset_m: 0.020}

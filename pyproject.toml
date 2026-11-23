@@ -1,0 +1,20 @@
+[project]
+name = "vla-errors"
+version = "0.1.0"
+description = "Controlled training-data errors for robot policies, and detectors for them"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24", "pandas>=2.0", "pyarrow>=14", "pyyaml>=6"]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
