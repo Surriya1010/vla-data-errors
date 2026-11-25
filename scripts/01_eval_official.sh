@@ -19,6 +19,7 @@ lerobot-eval \
   --eval.batch_size=1 \
   --eval.n_episodes="$EPISODES" \
   --env.init_states=true \
+  --rename_map="${RENAME_MAP:-{\"observation.images.image\": \"observation.images.camera1\", \"observation.images.image2\": \"observation.images.camera2\"}}" \
   --policy.n_action_steps="$N_ACTION_STEPS" \
   --seed="$EVAL_SEED" \
   --output_dir="$OUT"
